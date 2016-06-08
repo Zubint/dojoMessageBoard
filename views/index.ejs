@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dojo Message Board</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function (){
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+          <h1>The Dojo Message board</h1>
+          <hr>
+          <div class="form">
+            <form action="/posts/add" method="post">  <!-- this one creates a post -->
+                <p>Name:</p>
+                <p class="error"><%= errors['name']%><p>
+                <input type="text" name="name"/>
+
+                <p>Message</p>
+                <p class="error"><%= errors['message']%><p>
+
+                <textarea name="message">
+                </textarea>
+                <p></p>
+                <input id="postMessage" type="submit" value="Post Message">
+            </form>
+          </div>
+            <div class="posts">
+              <% for (var i =0; i< allPosts.length; i++){ %>
+              <hr>
+              <div class="postText">
+                <h2> Posters Name: <%= allPosts[i].name %></h2>
+                  <p> <%= allPosts[i].message %></p>
+              </div>
+              <% for(var idx in allPosts[i].comment){ %>
+              <div class="commentText">
+                <ul>Name: <%= allPosts[i].comment[idx].commentorName %>
+                  <li><%= allPosts[i].comment[idx].comment %></li>
+                </ul>
+              </div>
+              <% } %>
+              <form action="posts/<%=allPosts[i]._id %>/addComment" method="post">
+                <p>Name: </p>
+                <p class="error">
+                  <%= errors['commentorName']%>
+                  <p>
+                <input type="text" name="commentor">
+                <p>Comment: </p>
+                <p class="error"><%= errors['comment']%><p>
+                <textarea name="comment"></textarea>
+                <p><input type="submit" value="Post Comment"></p>
+              </form>
+              <hr>
+              <% } %>
+          </div>
+            <% console.log(allPosts) %>
+      </div>
+    </div>
+  </body>
+</html>

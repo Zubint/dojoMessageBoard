@@ -1,0 +1,85 @@
+input{
+  font-size: 16px;
+  padding: 3px;
+  width: 250px;
+}
+
+textarea{
+  width: 250px;
+  font-size: 16px;
+  padding: 3px;
+  vertical-align: top;
+  height: 90px;
+}
+
+body{
+  font-family: 'Arial', 'Tahoma', sans-serif;
+}
+h1{
+  color: pink;
+  margin: 10px auto;
+}
+
+h2{
+  margin: 5px;
+}
+
+h3{
+  margin: 5px;
+}
+
+h4{
+  margin: 5px;
+}
+
+h4.like{
+  text-align: right;
+}
+
+a{
+  text-decoration: none;
+}
+.container{
+  width: 95%;
+}
+
+.wrapper{
+  width: 95%;
+  padding: 5%;
+
+  margin: 25px auto;
+}
+
+ul{
+  list-style: none;
+}
+
+.posts{
+  width: 85%;
+  margin: 5px auto;
+  background-color: #dfdcd7;
+  padding: 10px;
+}
+
+textarea{
+  width: 85%
+}
+input[type="submit"] {
+  border-radius: 0px;
+  padding: 10px;
+  font-size: 12px;
+  color: white;
+  background-color: #4285f4;
+}
+
+#postMessage{
+  background-color: #009e0f;
+}
+
+.error{
+  color: red;
+}
+
+.hidden{
+  visibility: hidden;
+}
